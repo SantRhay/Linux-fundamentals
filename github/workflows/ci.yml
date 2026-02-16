@@ -1,0 +1,35 @@
+name: CI DevOps Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint Shell Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck
+        run: shellcheck scripts/*.sh
+
+  docker-build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          cd docker
+          docker build -t devops-nginx .
