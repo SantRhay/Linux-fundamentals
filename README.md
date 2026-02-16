@@ -53,3 +53,4 @@ scripts/
 ## ✅ Resultado final
 Ambiente AWS provisionado automaticamente via scripts Bash,
 simulando um cenário real de infraestrutura DevOps.
+# Teste pipeline
