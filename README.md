@@ -1,28 +1,34 @@
-# 🌐 Projeto 1: Servidor Web na AWS
+# 🌐 Projeto 0: Servidor Web na AWS (Automação com Bash)
 
-*Autora:* [Rayane Santana](https://github.com/SantRhay)  
-*Stack:* Linux + AWS EC2 + Nginx
+*Autora:* Rayane Santana 
+*Stack:* Linux + AWS EC2 + Bash + Nginx 
 
 ---
 
 ## 🎯 *Objetivo*
-Criar um servidor web na AWS utilizando uma instância EC2, instalar o Nginx e hospedar uma página HTML simples, documentando todo o processo e os erros encontrados.
+Criar e automatizar o provisionamento de uma instância EC2 na AWS, configurando um servidor web Linux com foco em Fundamentos DevOps.
 
 ---
 
-## 📦 *O que foi feito*
-- [x] Criar instância EC2 (t3.micro, Ubuntu 22.04)
-- [x] Configurar Security Group (portas 22, 80, 443)
-- [x] Instalar e configurar Nginx
-- [x] Subir página HTML personalizada
-- [x] Versionar tudo no GitHub
+## 📦 *Tecnologia utilizadas*
+- AWS EC2
+- Linux (Ubuntu)
+- Bash Script
+- SSH
+- Security Groups
+- Git / Github
 
 ---
 
-## 🏗️ *Arquitetura*
+## 🏗️  Estrutura do projeto*
 
-Internet → Security Group (portas 22/80/443) → EC2 (Ubuntu + Nginx) → Página HTML
-
+scripts/
+├── 01-variaveis.sh
+├── 02-criar-grupo-de-seguranca.sh
+├── 03-criar-par-de-chaves.sh
+├── 04-create-ec2.sh
+├── 05-conectar-ssh.sh
+└── 06-destruir.sh
 
 ---
 
@@ -82,23 +88,24 @@ git push -u origin main --force
 
 ---
 
-## 📚 *Conceitos explicados*
+## 📚 Fluxo de execução
 
-### *Security Group*
-Firewall virtual da AWS que controla o tráfego permitido para a instância.
-
-### *IP Público vs IP Privado*
-- *IP Público:* Acessível da internet (ex: 3.235.191.254)
-- *IP Privado:* Comunicação interna na VPC (ex: 172.31.64.82)
-
-### *SSH*
-Protocolo seguro para acessar e gerenciar servidores remotamente.
+1. Definição de variáveis do projeto
+2. Criação do Security Group
+3. Criação do par de chaves
+4. Provisionamento da isntância EC2
+5. Conexão via SSH
+6. Destruição do ambiente
 
 ---
 
-## 🔗 *Repositório*
-[https://github.com/SantRhay/Linux-fundamentals](https://github.com/SantRhay/Linux-fundamentals)
+## 🚨 Erros enfrentados e aprendizados
+- Configuração incorreta de permissões SSH
+- Ajustes em regras de Security Group
+- Organização de scripts para automação completa
 
 ---
 
-⭐ Projeto desenvolvido para aprendizado de fundamentos DevOps ⭐
+## ✅ Resultado final
+Ambiente AWS provisionado automaticamente via scripts Bash,
+simulando um cenário real de infraestrutura DevOps.
