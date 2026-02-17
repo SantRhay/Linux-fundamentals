@@ -1,56 +1,126 @@
-# 🌐 Projeto 0: Servidor Web na AWS (Automação com Bash)
+            🚀 Projeto 0 – Servidor Web na AWS (Automação com Bash)
 
-*Autora:* Rayane Santana 
-*Stack:* Linux + AWS EC2 + Bash + Nginx 
+                             Autora: Rayane Santana
+                 Stack: Linux • AWS EC2 • Bash • Nginx • AWS CLI
 
----
+--------------------------------------------------------------------------------------------------------------------------------
 
-## 🎯 *Objetivo*
-Criar e automatizar o provisionamento de uma instância EC2 na AWS, configurando um servidor web Linux com foco em Fundamentos DevOps.
+## 📌 Sobre o Projeto
 
----
+Este projeto tem como objetivo automatizar o provisionamento de uma infraestrutura básica na AWS utilizando Bash Script e AWS CLI.
 
-## 📦 *Tecnologia utilizadas*
-- AWS EC2
-- Linux (Ubuntu)
-- Bash Script
-- SSH
-- Security Groups
-- Git / Github
+A solução cria automaticamente:
+	
+• Security Group
+• Key Pair
+• Instância EC2
+• Servidor Web Nginx configurado
 
----
+Toda a infraestrutura é criada via linha de comando, simulando um cenário real de provisionamento manual automatizado — prática comum em ambientes DevOps.
 
-## 🏗️  Estrutura do projeto*
+⸻
 
-scripts/
-├── 01-variaveis.sh
-├── 02-criar-grupo-de-seguranca.sh
-├── 03-criar-par-de-chaves.sh
-├── 04-create-ec2.sh
-├── 05-conectar-ssh.sh
-└── 06-destruir.sh
+## 🎯 Objetivos
+•✅ Automatizar criação de infraestrutura na AWS
+•✅ Aplicar fundamentos de Linux e Shell Script
+•✅ Utilizar AWS CLI para provisionamento
+•✅ Configurar servidor web Nginx
+•✅ Organizar scripts de forma modular
+•✅ Implementar fluxo completo de criação e destruição de ambiente
+⸻
 
----
+## 🛠️ Tecnologias Utilizadas
+• AWS EC2
+• AWS CLI
+• Linux (Ubuntu)
+• Bash Script
+• Nginx
+• SSH
+• Git / GitHub
 
-## 📚 Fluxo de execução
+⸻
 
-1. Definição de variáveis do projeto
-2. Criação do Security Group
-3. Criação do par de chaves
-4. Provisionamento da isntância EC2
-5. Conexão via SSH
-6. Destruição do ambiente
+## 📂 Estrutura do Projeto
 
----
+Linux-fundamentals/
+│
+├── scripts/
+│   ├── 01-variables.sh
+│   ├── 02-create-security-group.sh
+│   ├── 03-create-keypair.sh
+│   ├── 04-create-ec2.sh
+│   ├── 05-connect-ssh.sh
+│   └── 06-destroy.sh
+│
+├── docker/
+├── docs/
+├── .github/workflows/
+└── README.md
 
-## 🚨 Erros enfrentados e aprendizados
-- Configuração incorreta de permissões SSH
-- Ajustes em regras de Security Group
-- Organização de scripts para automação completa
+## 🔄 Fluxo de Execução
 
----
+1️⃣ Definição das variáveis do projeto
+2️⃣ Criação do Security Group
+3️⃣ Criação do Key Pair
+4️⃣ Provisionamento da instância EC2
+5️⃣ Conexão via SSH
+6️⃣ Instalação e validação do Nginx
+7️⃣ Destruição completa do ambiente
 
-## ✅ Resultado final
-Ambiente AWS provisionado automaticamente via scripts Bash,
-simulando um cenário real de infraestrutura DevOps.
-# Teste pipeline
+⸻
+
+## ▶️ Como Executar
+
+1️⃣ Acessar pasta de scripts
+
+cd scripts
+chmod +x *.sh
+
+2️⃣ Criar ambiente
+
+source 01-variables.sh
+./02-create-security-group.sh
+./03-create-keypair.sh
+./04-create-ec2.sh
+./05-connect-ssh.sh
+
+3️⃣ Destruir ambiente
+
+source 01-variables.sh
+./06-destroy.sh
+
+## 🌐 Resultado
+
+Após a execução, o servidor Nginx é provisionado automaticamente e pode ser acessado via navegador utilizando o IP público da instância EC2.
+
+⸻
+
+## ⚠️  Desafios Enfrentados
+
+• 🔐 Erros de permissão SSH
+• 🔁 Conflito de Security Groups duplicados
+• 📦 Variáveis não carregadas corretamente
+• 🧹 Instâncias órfãs na AWS
+
+⸻
+
+## 📚 Aprendizados
+
+• Importância do source para variáveis persistirem na sessão
+• Organização modular de scripts
+• Gerenciamento correto de recursos na AWS
+• Controle de custos evitando recursos não destruídos
+
+⸻
+
+## 💡 Próximos Passos (Melhorias Futuras)
+• Implementar validações de erro nos scripts
+• Adicionar logs estruturados
+• Criar versionamento de AMI automática
+• Evoluir para Terraform
+
+⸻
+
+## 🔥 Resultado Final
+
+Projeto funcional de provisionamento automatizado simulando um cenário real de infraestrutura DevOps na AWS.
